@@ -1,13 +1,20 @@
 import React, { useLayoutEffect } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, TouchableOpacity, View, FlatList, Platfrom, Platform } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import ProductItem from "../../components/shop/ProductItem";
 import * as cartActions from "../../store/actions/cart";
+import Colors from "../../constants/Colors";
+import { Feather } from "@expo/vector-icons";
 
 const ProductsOverviewScreen = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "All Products",
+      headerRight: () => (
+        <TouchableOpacity style={{marginRight: 20}} onPress={() => {navigation.navigate("Cart")}}>
+          <Feather name="shopping-cart" size={20} color={Platform.OS === "android" ? "white" : Colors.primary}/>
+        </TouchableOpacity>
+      ),
     });
   });
 

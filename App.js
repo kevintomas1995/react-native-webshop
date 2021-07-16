@@ -10,7 +10,7 @@ import productsReducer from "./store/reducer/products";
 import cartReducer from "./store/reducer/cart"
 import { Provider } from "react-redux";
 import Colors from "./constants/Colors";
-
+import CartScreen from "./screens/shop/CartScreen";
 
 
 const Stack = createStackNavigator();
@@ -42,6 +42,7 @@ export default function App() {
             component={ProductsOverviewScreen}
           />
           <Stack.Screen name="ProductDetails" component={ProductDetailScreen} />
+          <Stack.Screen name="Cart" component={CartScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
